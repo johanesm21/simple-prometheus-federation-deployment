@@ -1,0 +1,46 @@
+services:
+  prometheus-1:
+    image: prom/prometheus:latest
+    container_name: prometheus-1
+    volumes:
+      - ./promethus-1/prometheus.yml:/etc/prometheus/prometheus.yml
+    ports:
+      - "9090:9090"
+    healthcheck:
+      test: ["CMD-SHELL", "curl --silent --fail localhost:9090/-/ready || exit 1"]
+      interval: 10s
+      timeout: 10s
+      retries: 3
+    networks:
+      - prometheus
+  prometheus-2:
+    image: prom/prometheus:latest
+    container_name: prometheus-2
+    volumes:
+      - ./promethus-1/prometheus.yml:/etc/prometheus/prometheus.yml
+    ports:
+      - "9090:9090"
+    healthcheck:
+      test: ["CMD-SHELL", "curl --silent --fail localhost:9090/-/ready || exit 1"]
+      interval: 10s
+      timeout: 10s
+      retries: 3
+    networks:
+      - prometheus
+  prometheus-3:
+    image: prom/prometheus:latest
+    container_name: prometheus-3
+    volumes:
+      - ./promethus-1/prometheus.yml:/etc/prometheus/prometheus.yml
+    ports:
+      - "9090:9090"
+    healthcheck:
+      test: ["CMD-SHELL", "curl --silent --fail localhost:9090/-/ready || exit 1"]
+      interval: 10s
+      timeout: 10s
+      retries: 3
+    networks:
+      - prometheus
+networks:
+  prometheus:
+    driver: bridge
