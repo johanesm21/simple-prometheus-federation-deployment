@@ -6,7 +6,7 @@ There consists of 3 prometheus instance deployed with docker / podman (each of t
 - prometheus-2 in port 9092
 - prometheus-3 in port 9093
 
-## How to deploy:
+## How to deploy
 - download this code to your server
 ```shell
 wget https://github.com/johanesm21/simple-prometheus-federation-deployment.git
